@@ -28,6 +28,7 @@ import {ViewTypes} from 'app/constants';
 import mattermostBucket from 'app/mattermost_bucket';
 import {preventDoubleTap} from 'app/utils/tap';
 import PostTextbox from 'app/components/post_textbox';
+import PushNotifications from 'app/push_notifications';
 import networkConnectionListener from 'app/utils/network';
 import tracker from 'app/utils/time_tracker';
 import LocalConfig from 'assets/config';
@@ -113,6 +114,12 @@ export default class Channel extends PureComponent {
 
         if (nextProps.currentTeamId && this.props.currentTeamId !== nextProps.currentTeamId) {
             this.loadChannels(nextProps.currentTeamId);
+        }
+
+        if (nextProps.currentChannelId !== this.props.currentChannelId &&
+            nextProps.currentTeamId === this.props.currentTeamId &&
+            Platform.OS === 'ios') {
+            PushNotifications.clearChannelNotifications(nextProps.currentChannelId);
         }
 
         if (LocalConfig.EnableMobileClientUpgrade && !ClientUpgradeListener) {
@@ -232,7 +239,12 @@ export default class Channel extends PureComponent {
     };
 
     handleAppStateChange = async (appState) => {
-        this.handleWebSocket(appState === 'active');
+        const active = appState === 'active';
+
+        this.handleWebSocket(active);
+        if (Platform.OS === 'ios' && active) {
+            PushNotifications.clearChannelNotifications(this.props.currentChannelId);
+        }
     };
 
     handleConnectionChange = (isConnected) => {
