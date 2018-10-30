@@ -117,8 +117,7 @@ export default class Channel extends PureComponent {
         }
 
         if (nextProps.currentChannelId !== this.props.currentChannelId &&
-            nextProps.currentTeamId === this.props.currentTeamId &&
-            Platform.OS === 'ios') {
+            nextProps.currentTeamId === this.props.currentTeamId) {
             PushNotifications.clearChannelNotifications(nextProps.currentChannelId);
         }
 
@@ -242,7 +241,7 @@ export default class Channel extends PureComponent {
         const active = appState === 'active';
 
         this.handleWebSocket(active);
-        if (Platform.OS === 'ios' && active) {
+        if (active) {
             PushNotifications.clearChannelNotifications(this.props.currentChannelId);
         }
     };
