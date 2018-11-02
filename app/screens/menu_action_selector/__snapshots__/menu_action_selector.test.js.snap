@@ -48,6 +48,7 @@ exports[`MenuActionSelector should match snapshot for channels 1`] = `
       "locale": "en",
       "messages": Object {},
       "now": [Function],
+      "onError": [Function],
       "textComponent": "span",
       "timeZone": null,
     }
@@ -137,6 +138,7 @@ exports[`MenuActionSelector should match snapshot for channels 2`] = `
       "locale": "en",
       "messages": Object {},
       "now": [Function],
+      "onError": [Function],
       "textComponent": "span",
       "timeZone": null,
     }
@@ -220,6 +222,7 @@ exports[`MenuActionSelector should match snapshot for explicit options 1`] = `
       "locale": "en",
       "messages": Object {},
       "now": [Function],
+      "onError": [Function],
       "textComponent": "span",
       "timeZone": null,
     }
@@ -309,6 +312,7 @@ exports[`MenuActionSelector should match snapshot for searching 1`] = `
       "locale": "en",
       "messages": Object {},
       "now": [Function],
+      "onError": [Function],
       "textComponent": "span",
       "timeZone": null,
     }
@@ -396,6 +400,7 @@ exports[`MenuActionSelector should match snapshot for users 1`] = `
       "locale": "en",
       "messages": Object {},
       "now": [Function],
+      "onError": [Function],
       "textComponent": "span",
       "timeZone": null,
     }
@@ -483,6 +488,7 @@ exports[`MenuActionSelector should match snapshot for users 2`] = `
       "locale": "en",
       "messages": Object {},
       "now": [Function],
+      "onError": [Function],
       "textComponent": "span",
       "timeZone": null,
     }
