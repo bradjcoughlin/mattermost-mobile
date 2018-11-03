@@ -12,19 +12,18 @@ jest.mock('react-intl');
 
 describe('MoreChannels', () => {
     const navigator = {
-        setOnNavigatorEvent: () => {}, // eslint-disable-line no-empty-function
-        setButtons: () => {}, // eslint-disable-line no-empty-function
-        dismissModal: () => {}, // eslint-disable-line no-empty-function
-        push: () => {}, // eslint-disable-line no-empty-function
+        setOnNavigatorEvent: jest.fn(),
+        setButtons: jest.fn(),
+        dismissModal: jest.fn(),
+        push: jest.fn(),
     };
 
     const actions = {
-        handleSelectChannel: () => {}, // eslint-disable-line no-empty-function
-        joinChannel: () => {}, // eslint-disable-line no-empty-function
-        getChannels: () => {}, // eslint-disable-line no-empty-function
-        removeHiddenDefaultChannel: () => {}, // eslint-disable-line no-empty-function
-        searchChannels: () => {}, // eslint-disable-line no-empty-function
-        setChannelDisplayName: () => {}, // eslint-disable-line no-empty-function
+        switchToChannel: jest.fn(),
+        joinChannel: jest.fn(),
+        getChannels: jest.fn(),
+        removeHiddenDefaultChannel: jest.fn(),
+        searchChannels: jest.fn(),
     };
 
     const baseProps = {

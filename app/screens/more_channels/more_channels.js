@@ -35,11 +35,10 @@ export default class MoreChannels extends PureComponent {
         closeButton: PropTypes.object,
         requestStatus: PropTypes.object.isRequired,
         actions: PropTypes.shape({
-            handleSelectChannel: PropTypes.func.isRequired,
             joinChannel: PropTypes.func.isRequired,
             getChannels: PropTypes.func.isRequired,
             searchChannels: PropTypes.func.isRequired,
-            setChannelDisplayName: PropTypes.func.isRequired,
+            switchToChannel: PropTypes.func.isRequired,
         }).isRequired,
     };
 
@@ -259,12 +258,8 @@ export default class MoreChannels extends PureComponent {
             this.emitCanCreateChannel(true);
             this.setState({adding: false});
         } else {
-            if (channel) {
-                actions.setChannelDisplayName(channel.display_name);
-            } else {
-                actions.setChannelDisplayName('');
-            }
-            await actions.handleSelectChannel(id);
+            const displayName = channel ? channel.display_name : '';
+            await actions.switchToChannel(id, displayName);
 
             EventEmitter.emit('close_channel_drawer');
             InteractionManager.runAfterInteractions(() => {

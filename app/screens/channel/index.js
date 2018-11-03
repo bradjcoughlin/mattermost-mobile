@@ -13,6 +13,7 @@ import {getTheme} from 'mattermost-redux/selectors/entities/preferences';
 
 import {
     loadChannelsIfNecessary,
+    loadPostsIfNecessaryWithRetry,
     loadProfilesAndTeamMembersForDMSidebar,
     selectInitialChannel,
 } from 'app/actions/views/channel';
@@ -40,6 +41,7 @@ function mapDispatchToProps(dispatch) {
         actions: bindActionCreators({
             connection,
             loadChannelsIfNecessary,
+            loadPostsIfNecessaryWithRetry,
             loadProfilesAndTeamMembersForDMSidebar,
             logout,
             selectDefaultTeam,

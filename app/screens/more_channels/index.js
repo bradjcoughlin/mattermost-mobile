@@ -12,7 +12,7 @@ import {getCurrentUserRoles} from 'mattermost-redux/selectors/entities/users';
 import {showCreateOption} from 'mattermost-redux/utils/channel_utils';
 import {isAdmin, isSystemAdmin} from 'mattermost-redux/utils/user_utils';
 
-import {handleSelectChannel, setChannelDisplayName} from 'app/actions/views/channel';
+import {switchToChannel} from 'app/actions/views/channel';
 import {getTheme} from 'mattermost-redux/selectors/entities/preferences';
 import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
 
@@ -50,11 +50,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators({
-            handleSelectChannel,
             joinChannel,
             getChannels,
             searchChannels,
-            setChannelDisplayName,
+            switchToChannel,
         }, dispatch),
     };
 }
